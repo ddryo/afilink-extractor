@@ -1,0 +1,6 @@
+/vendor
+/.vscode
+/node_modules
+/bin
+__*
+.DS_Store

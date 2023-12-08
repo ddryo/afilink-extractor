@@ -1,0 +1,11 @@
+{
+  "name": "afilink-extractor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "zip": "bash ./bin/zip.sh"
+  },
+  "author": "",
+  "license": "GPL-2.0-or-later"
+}
