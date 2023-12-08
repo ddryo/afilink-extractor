@@ -28,4 +28,4 @@
 
 ## バグ報告
 
-この github の issue へお願いします。
+この github の [issue](https://github.com/ddryo/afilink-extractor/issues) へお願いします。
