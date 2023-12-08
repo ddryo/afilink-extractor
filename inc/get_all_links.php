@@ -78,7 +78,7 @@ function get_a8links() {
 	}
 	wp_reset_postdata();
 
-	set_transient( 'ls_afiext_data_cache', $link_list, 30 * MINUTE_IN_SECONDS );
+	set_transient( 'ls_afiext_data_cache', $link_list, 24 * HOUR_IN_SECONDS );
 	return $link_list;
 }
 
