@@ -1,5 +1,5 @@
 <?php
-namespace LOOS\CSV;
+namespace LOOS\AfiExt;
 
 function array_to_csv($array, $column_names = []) {
 	$fp = fopen('php://temp', 'r+b');

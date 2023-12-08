@@ -9,9 +9,12 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: ls-afiext
  * Domain Path: /languages
+ * Update URI: ls-afilink-extractor
  */
 
 defined( 'ABSPATH' ) || exit;
+
+require_once __DIR__ . '/inc/update.php';
 
 /**
  * menu 追加
@@ -70,7 +73,7 @@ function ls_afiext__dashboard_site_status() {
 	if ( isset( $_POST['ls-afiext-check'] ) && ls_afiext__checknonce() ) {
 		delete_transient( 'ls_afiext_data_cache' );
 		try {
-			$link_list = \LOOS\CSV\get_a8links();
+			$link_list = \LOOS\AfiExt\get_a8links();
 			$table_caption = '新規抽出データ';
 		} catch (\Throwable $th) {
 			echo '<p>エラーが発生しました</p>';
@@ -105,9 +108,7 @@ function ls_afiext__dashboard_site_status() {
 			echo '</div>';
 		}
 		echo '</form>';
-
 	}
-	
 
 	echo '</div>';
 }
@@ -119,14 +120,14 @@ add_action('admin_init', function() {
 
 	try {
 		require_once __DIR__ . '/inc/get_all_links.php';
-		$link_list = \LOOS\CSV\get_a8links();
+		$link_list = \LOOS\AfiExt\get_a8links();
 	} catch (\Throwable $th) {
 		echo '<p>エラーが発生しました</p>';
 		echo '<p>' . $th->getMessage() . '</p>';
 	}
 
 	require_once __DIR__ . '/inc/array_to_csv.php';
-	$csv = \LOOS\CSV\array_to_csv($link_list, ['記事url', 'プログラムID', '使用リンク']);
+	$csv = \LOOS\AfiExt\array_to_csv($link_list, ['記事url', 'プログラムID', '使用リンク']);
 
 	// 出力
 	$filename = 'a8_links_' . wp_date('Ymd') . '.csv';

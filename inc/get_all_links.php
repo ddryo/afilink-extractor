@@ -1,5 +1,5 @@
 <?php
-namespace LOOS\CSV;
+namespace LOOS\AfiExt;
 
 function get_a8links() {
 
