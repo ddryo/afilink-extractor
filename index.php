@@ -3,6 +3,7 @@
  * Plugin Name: Afilink Extractor
  * Description: アフィリエイトリンク(a8) を抽出するプラグイン
  * Version: 1.0.0
+ * Plugin URI: https://github.com/ddryo/afilink-extractor
  * Author: 了
  * Author URI: https://twitter.com/ddryo_loos
  * License: GPL2 or later
@@ -75,6 +76,9 @@ function ls_afiext__dashboard_site_status() {
 		try {
 			$link_list = \LOOS\AfiExt\get_a8links();
 			$table_caption = '新規抽出データ';
+			if ( empty($link_list) ) {
+				echo '<p>リンクは見つかりませんでした。</p>';
+			}
 		} catch (\Throwable $th) {
 			echo '<p>エラーが発生しました</p>';
 			echo '<p>' . $th->getMessage() . '</p>';
